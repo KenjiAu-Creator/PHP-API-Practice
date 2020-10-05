@@ -17,3 +17,9 @@ https://trello.com/b/IOye19mr/php-practice-api
 * Add a form to customize the request.
   * For example: If you choose a weather API, allow the user to enter their location and get the data specific to their location
 * Build your own PHP API end-point and call from it via JavaScript
+
+## Citations
+Reason: The BandsInTown API provides event show dates in ISO format. This is very hard to read from an everyday user perspective.
+I looked online for a simple way to convert the format to be more readable.
+
+Source: https://stackoverflow.com/questions/3106652/php-convert-iso-date-to-more-readable-format

@@ -57,7 +57,14 @@ include './templates/header.php';
       </tr>
     <?php foreach ($artistEvents as $event) : ?>
       <tr>
-        <td><?php echo $event->datetime ?></td>
+        <td>
+          <?php 
+          // Stack overflow code snippet for coverting ISO time into a readable format.
+          // link @ https://stackoverflow.com/questions/3106652/php-convert-iso-date-to-more-readable-format
+          $format = "M d Y ";
+          echo date_format(date_create($event->datetime), $format);
+           ?>
+      </td>
         <td><?php echo $event->venue->city ?>, <?php echo $event->venue->country ?></td>
         <td><?php echo $event->venue->name ?></td>
         <td><a href="<?php echo $event->offers[0]->url ?>" target="_blank">Buy now!</a></td>
