@@ -1,5 +1,5 @@
 <?php
-$GLOBALS['pageTitle'] = "Home";
+$GLOBALS['pageTitle'] = "Music Tracker";
 
 // If the user has submitted a artist query
 if (isset($_POST['artist'] ) )
@@ -43,17 +43,17 @@ include './templates/header.php';
   <input type="submit" value="Search">
 </form>
 
-<?php if( $artistData ) : ?>
+<?php if( $artistData ) : // If the artist data is found ?>
   <h2><?php echo $artistName; ?></h2>
   <img id="artist-image" src="<?php echo $artistImageUrl; ?>">
   <p>Upcoming shows: <?php echo $artistUpcoming; ?>
-  <?php if ($artistEvents) : ?>
+  <?php if ($artistEvents) : // If the artist has events coming up ?>
     <table>
       <tr>
-        <td>Date</td>
-        <td>Location</td>
-        <td>Venue</td>
-        <td>Get your ticket!</td>
+        <td class="table-head">Date</td>
+        <td class="table-head">Location</td>
+        <td class="table-head" >Venue</td>
+        <td class="table-head">Get your ticket!</td>
       </tr>
     <?php foreach ($artistEvents as $event) : ?>
       <tr>
@@ -61,7 +61,10 @@ include './templates/header.php';
           <?php 
           // Stack overflow code snippet for coverting ISO time into a readable format.
           // link @ https://stackoverflow.com/questions/3106652/php-convert-iso-date-to-more-readable-format
+          // Desired format for the user.
           $format = "M d Y ";
+          // date_format will format the date in the format we define.
+          // date_create will create the date object with the string we pass into it.
           echo date_format(date_create($event->datetime), $format);
            ?>
       </td>
@@ -77,9 +80,9 @@ include './templates/header.php';
   <p>Sorry that artist could not be found.</p>
 <?php endif ?>
 
-<h2>Debugging</h2>
-<?php if ($artistDataString) : ?>
+<!-- <h2>Debugging</h2>
+<?php if ($artistDataString) : // Debugging checks. Delete when complete ?>
   <?php echo $artistDataString; ?>
-<?php endif ?>
+<?php endif ?> -->
 
 <?php include './templates/footer.php';

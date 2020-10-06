@@ -2,3 +2,6 @@
   width: 300px;
   height: auto;
 }
+.table-head {
+  font-weight: 600;
+}
