@@ -1,5 +1,5 @@
 <?php
-$GLOBALS['pageTitle'] = "Music Tracker";
+$GLOBALS['pageTitle'] = "Artist Tracker";
 
 // If the user has submitted a artist query
 if (isset($_POST['artist'] ) )
@@ -80,9 +80,12 @@ include './templates/header.php';
   <p>Sorry that artist could not be found.</p>
 <?php endif ?>
 
-<!-- <h2>Debugging</h2>
+<h2>Debugging</h2>
 <?php if ($artistDataString) : // Debugging checks. Delete when complete ?>
   <?php echo $artistDataString; ?>
-<?php endif ?> -->
+<?php endif ?>
+<h2>Albums listened to recently</h2>
+<ul id="albums"></ul>
+<button id="request">Get Albums</button>
 
 <?php include './templates/footer.php';
